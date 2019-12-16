@@ -184,7 +184,7 @@ sub _canon {
 
 sub _build_base_type_constraint {
 	my $self = shift;
-	my $base = $self->datatype->{base} || 'string';
+	my $base = lc( $self->datatype->{base} || 'string' );
 	my ($xsd_type) =
 		map  Types::XSD->get_type($_),
 		grep $base eq lc($_),

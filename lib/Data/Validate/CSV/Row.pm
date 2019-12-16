@@ -86,9 +86,8 @@ sub _build_cells {
 	my $self = shift;
 	my $raws = $self->raw_values;
 	my $cols = $self->columns;
-	my $max  = max($#$raws, $#$cols);
 	my @cells;
-	for my $i (0 .. $max) {
+	for my $i (0 .. $#$raws) {
 		$cols->[$i] ||= $self->column_class->new;
 		my $class = $cols->[$i]->has_separator
 			? $self->multi_value_cell_class
