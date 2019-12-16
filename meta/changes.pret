@@ -4,3 +4,8 @@
 	issued  2019-12-15;
 	label   "Initial release".
 
+`Data-Validate-CSV 0.002 cpan:TOBYINK`
+	issued  2019-12-16;
+	changeset [
+		item "Add missing dependency on Types::Path::Tiny."^^Packaging;
+	].

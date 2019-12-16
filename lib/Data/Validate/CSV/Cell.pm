@@ -5,7 +5,7 @@ use warnings;
 package Data::Validate::CSV::Cell;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.001';
+our $VERSION   = '0.002';
 
 use Moo::Role;
 use Data::Validate::CSV::Types -types;
