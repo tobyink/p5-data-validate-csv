@@ -9,3 +9,12 @@
 	changeset [
 		item "Add missing dependency on Types::Path::Tiny."^^Packaging;
 	].
+
+`Data-Validate-CSV 0.003 cpan:TOBYINK`
+	issued  2019-12-16;
+	changeset [
+		item "Include some proper tests."^^Tests;
+		item "Add a test dependency on Text::CSV or Text::CSV_XS and a runtime recommendation on Text::CSV_XS."^^Packaging;
+		item "Fix for XSD types which are not lowercase names."^^Bugfix;
+		item "When one row has additional columns, that was causing issues on subsequent rows. This has now been addressed."^^Bugfix;
+	].

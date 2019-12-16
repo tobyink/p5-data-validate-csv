@@ -5,7 +5,7 @@ use warnings;
 package Data::Validate::CSV::Table;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.002';
+our $VERSION   = '0.003';
 
 use Moo;
 use PerlX::Maybe;
