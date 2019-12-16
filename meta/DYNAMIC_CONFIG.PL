@@ -1,4 +1,14 @@
 {
+	sub parse_args {
+		require ExtUtils::MakeMaker;
+		require Text::ParseWords;
+		ExtUtils::MakeMaker::parse_args(
+			my $tmp = {},
+			Text::ParseWords::shellwords($ENV{PERL_MM_OPT} || ''),
+			@ARGV,
+		);
+		return $tmp->{ARGS} || {};
+	}
 	use ExtUtils::HasCompiler 0.014 'can_compile_loadable_object';
 	my $can_xs;
 	sub can_xs {
