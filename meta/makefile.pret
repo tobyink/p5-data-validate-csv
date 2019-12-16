@@ -1,0 +1,21 @@
+# This file provides instructions for packaging.
+
+@prefix : <http://ontologi.es/doap-deps#>.
+
+`Data-Validate-CSV`
+	:runtime-requirement    [ :on "perl 5.012000"^^:CpanId ];
+	:runtime-requirement    [ :on "JSON::PP"^^:CpanId ];
+	:runtime-requirement    [ :on "Path::Tiny"^^:CpanId ];
+	:runtime-requirement    [ :on "Types::XSD"^^:CpanId ];
+	:runtime-requirement    [ :on "Types::Standard"^^:CpanId ];
+	:runtime-requirement    [ :on "DateTime"^^:CpanId ];
+	:runtime-requirement    [ :on "DateTime::Duration"^^:CpanId ];
+	:runtime-requirement    [ :on "DateTime::Format::CLDR"^^:CpanId ];
+	:runtime-requirement    [ :on "DateTime::Incomplete"^^:CpanId ];
+	:runtime-requirement    [ :on "Moo"^^:CpanId ];
+	:runtime-requirement    [ :on "namespace::autoclean"^^:CpanId ];
+	:runtime-requirement    [ :on "PerlX::Maybe"^^:CpanId ];
+	:test-requirement       [ :on "Test::More 0.96"^^:CpanId ];
+	:develop-recommendation [ :on "Dist::Inkt 0.001"^^:CpanId ];
+	.
+
