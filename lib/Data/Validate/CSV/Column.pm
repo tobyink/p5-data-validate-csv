@@ -55,7 +55,7 @@ has separator  => (
 	is        => 'ro',
 	isa       => NonEmptyStr,
 	predicate => 1,
-);	
+);
 
 has ordered => (
 	is        => 'ro',
@@ -170,10 +170,10 @@ sub _canon {
 		}
 		else {
 			if ($self->base_type_constraint->check($c)) {
-				push @$errs, sprintf('Value %s is a valid %s, but fails additional constraints', B::perlstring($c), $base); 
+				push @$errs, sprintf('Value %s is a valid %s, but fails additional constraints', B::perlstring($c), $base);
 			}
 			else {
-				push @$errs, sprintf('Value %s is a not valid %s', B::perlstring($c), $base); 
+				push @$errs, sprintf('Value %s is a not valid %s', B::perlstring($c), $base);
 			}
 			$c;
 		}
@@ -196,7 +196,7 @@ sub _build_type_constraint {
 	my $self = shift;
 	require Types::XSD;
 	my %dt   = %{ $self->datatype };
-	my $base = lc delete $dt{base};		
+	my $base = lc delete $dt{base};
 	my $xsd_type = $self->base_type_constraint;
 	die "huh? $base" unless $xsd_type;
 	
