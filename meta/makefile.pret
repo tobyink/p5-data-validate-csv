@@ -8,6 +8,7 @@
 	:runtime-requirement    [ :on "Path::Tiny"^^:CpanId ];
 	:runtime-requirement    [ :on "Types::XSD"^^:CpanId ];
 	:runtime-requirement    [ :on "Types::Standard"^^:CpanId ];
+	:runtime-requirement    [ :on "Types::Path::Tiny"^^:CpanId ];
 	:runtime-requirement    [ :on "DateTime"^^:CpanId ];
 	:runtime-requirement    [ :on "DateTime::Duration"^^:CpanId ];
 	:runtime-requirement    [ :on "DateTime::Format::CLDR"^^:CpanId ];
