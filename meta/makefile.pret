@@ -16,7 +16,9 @@
 	:runtime-requirement    [ :on "Moo"^^:CpanId ];
 	:runtime-requirement    [ :on "namespace::autoclean"^^:CpanId ];
 	:runtime-requirement    [ :on "PerlX::Maybe"^^:CpanId ];
+	:runtime-recommendation [ :on "Text::CSV_XS"^^:CpanId ];
 	:test-requirement       [ :on "Test::More 0.96"^^:CpanId ];
+	:configure-requirement  [ :on "ExtUtils::HasCompiler 0.014"^^:CpanId ];
 	:develop-recommendation [ :on "Dist::Inkt 0.001"^^:CpanId ];
 	.
 

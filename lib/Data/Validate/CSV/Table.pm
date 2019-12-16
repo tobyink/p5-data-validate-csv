@@ -60,13 +60,14 @@ has reader => (
 	isa       => CodeRef,
 );
 
+my $implementation;
 sub _build_reader {
 	my $self = shift;
-	require Text::CSV_XS;
-	my $csv = Text::CSV_XS->new({
+	$implementation ||= eval { require Text::CSV_XS; 'Text::CSV_XS' };
+	$implementation ||= do   { require Text::CSV;    'Text::CSV' };
+	my $csv = $implementation->new({
 		allow_whitespace   => 1,
 		sep_char           => q{,},
-		
 	});
 	sub { $csv->getline($_[0]) };
 }
