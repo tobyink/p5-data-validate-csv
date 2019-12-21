@@ -261,8 +261,8 @@ All the simple datatypes from XSD schema are supported as base datatypes.
 Most of the facets like C<< "maxLength" >> and C<< "minLength" >> are
 supported.
 
-A datatype C<< "json" >> is also supported, but it doesn't support any
-facets.
+Datatypes C<< "json" >> and C<< "xml" >> are also supported, but don't
+support any facets.
 
 =back
 

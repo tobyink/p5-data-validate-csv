@@ -19,6 +19,7 @@ use Type::Library -base, -declare => qw(
 	ValidJson
 	ValidJsonObject
 	ValidJsonArray
+	WellFormedXml
 );
 
 BEGIN {
@@ -115,6 +116,14 @@ __PACKAGE__->add_type(
 			sprintf('eval { JSON::PP::decode_json(%s); 1 }', $var),
 		);
 	},
+);
+
+require XML::LibXML;
+
+__PACKAGE__->add_type(
+	name       => WellFormedXml,
+	parent     => Str,
+	constraint => 'eval { !! "XML::LibXML"->load_xml(string => $_) }',
 );
 
 __PACKAGE__->make_immutable;

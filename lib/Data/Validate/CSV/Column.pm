@@ -155,6 +155,9 @@ sub _canon {
 			elsif ($obj and $base eq 'json') {
 				JSON::PP::decode_json($c);
 			}
+			elsif ($obj and $base eq 'xml') {
+				XML::LibXML->load_xml(string => $c);
+			}
 			elsif ($obj and $base =~ /duration/) {
 				Types::XSD::dur_parse($c);
 			}
@@ -188,11 +191,14 @@ sub _canon {
 sub _build_base_type_constraint {
 	my $self = shift;
 	my $base = lc( $self->datatype->{base} || 'string' );
+	
+	return ValidJson     if $base eq 'json';
+	return WellFormedXml if $base eq 'xml';
+	
 	my ($xsd_type) =
 		map  Types::XSD->get_type($_),
 		grep $base eq lc($_),
 		Types::XSD->type_names;
-	$xsd_type = ValidJson if $base eq 'json';
 	$xsd_type;
 }
 
