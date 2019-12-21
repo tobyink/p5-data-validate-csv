@@ -253,7 +253,16 @@ starting at 1.
 
 =item C<< datatype >>
 
-The datatype for this cell as a hashref.
+The datatype for this cell as a hashref like:
+
+  { "base" => "string" }
+
+All the simple datatypes from XSD schema are supported as base datatypes.
+Most of the facets like C<< "maxLength" >> and C<< "minLength" >> are
+supported.
+
+A datatype C<< "json" >> is also supported, but it doesn't support any
+facets.
 
 =back
 

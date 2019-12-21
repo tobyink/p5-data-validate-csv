@@ -16,6 +16,9 @@ use Type::Library -base, -declare => qw(
 	Note
 	SingleValueCell
 	MultiValueCell
+	ValidJson
+	ValidJsonObject
+	ValidJsonArray
 );
 
 BEGIN {
@@ -77,6 +80,42 @@ __PACKAGE__->add_type(Type::Tiny::Class->new(
 	name     => MultiValueCell,
 	class    => 'Data::Validate::CSV::MultiValueCell',
 ));
+
+require JSON::PP;
+
+__PACKAGE__->add_type(
+	name       => ValidJson,
+	parent     => Str,
+	constraint => 'eval { JSON::PP::decode_json($_); 1 }',
+);
+
+__PACKAGE__->add_type(
+	name       => ValidJsonObject,
+	parent     => ValidJson,
+	constraint => q{/\A\s*\{/s},
+	inlined    => sub {
+		my $var = pop;
+		return (
+			Str->inline_check($var),
+			sprintf('%s =~ /\A\s*\{/s', $var),
+			sprintf('eval { JSON::PP::decode_json(%s); 1 }', $var),
+		);
+	},
+);
+
+__PACKAGE__->add_type(
+	name       => ValidJsonArray,
+	parent     => ValidJson,
+	constraint => q{/\A\s*\[/s},
+	inlined    => sub {
+		my $var = pop;
+		return (
+			Str->inline_check($var),
+			sprintf('%s =~ /\A\s*\[/s', $var),
+			sprintf('eval { JSON::PP::decode_json(%s); 1 }', $var),
+		);
+	},
+);
 
 __PACKAGE__->make_immutable;
 
